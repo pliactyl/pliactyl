@@ -1,0 +1,23 @@
+<html lang="en">
+<head><title>Pliactyl</title></head>
+<body>
+    <h1>Pliactyl</h1>
+    <p>Welcome to Pliactyl!</p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+    <div style="text-align: center;">
+        <form method="POST">
+            <label>Username: <input type="text" name="username" placeholder="Username"></label><br>
+            <label>Password: <input type="password" name="password" placeholder="Password"></label><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

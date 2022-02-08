@@ -1,2 +1,2 @@
 # pliactyl
-A completely python implementation of Dashactyl.
+A complete python implementation of Dashactyl with my own *twist*.
