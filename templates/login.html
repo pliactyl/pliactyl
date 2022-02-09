@@ -1,23 +1,36 @@
-<html lang="en">
-<head><title>Pliactyl</title></head>
-<body>
-    <h1>Pliactyl</h1>
-    <p>Welcome to Pliactyl!</p>
-    {% with messages = get_flashed_messages() %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Login</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <ul class=flashes>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
         {% endif %}
-    {% endwith %}
-    <div style="text-align: center;">
-        <form method="POST">
-            <label>Username: <input type="text" name="username" placeholder="Username"></label><br>
-            <label>Password: <input type="password" name="password" placeholder="Password"></label><br>
-            <input type="submit" value="Login">
+        {% endwith %}
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="Your Password">
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Login</button>
         </form>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}
