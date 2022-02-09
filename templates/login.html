@@ -2,34 +2,36 @@
 
 {% block content %}
 <div class="column is-4 is-offset-4">
-    <h3 class="title">Login</h3>
-    <div class="box">
+    <div class="card text-white bg-dark mb-3" align="center" style="margin: 5rem;">
+        <div class="card-header">
+            <h1>Login</h1>
+        </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <div class="notification is-danger">
+        <div class="alert alert-danger">
             {{ messages[0] }}
         </div>
         {% endif %}
         {% endwith %}
         <form method="POST" action="/login">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
-                </div>
+            <div class="form-group" style="max-width:20rem">
+                <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Your Password">
-                </div>
+            <div class="form-group" style="max-width:20rem">
+                <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             <div class="field">
                 <label class="checkbox">
-                    <input type="checkbox" name="remember">
+                    <input class="checkbox" type="checkbox" name="remember">
                     Remember me
                 </label>
             </div>
-            <button class="button is-block is-info is-large is-fullwidth">Login</button>
+            <button class="btn btn-primary">Login</button>
         </form>
     </div>
 </div>
